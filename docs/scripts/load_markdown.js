@@ -5,7 +5,10 @@ function LoadPage(index) {
     Object.prototype.getByIndex = function(index) {
         return this[Object.keys(this)[index]];
       };
-    pagename = data[board].getByIndex(index -1);
+    let allContent = '';
+
+    for (let i = 0; i < Object.keys(data[board]).length; i++) {
+    pagename = data[board].getByIndex(i);
     url = data_url + board + '/' + pagename
     fetch(url)
             .then(response => response.blob())
@@ -18,7 +21,10 @@ function LoadPage(index) {
                         html = convertor.makeHtml(text)
 
                     markdown = `<a name="` + pagename + `">` + html + `</a>`
-                    document.getElementById("markdown").innerHTML = markdown
+                    allContent += markdown;
+
+                    // Append the content to the main element
+                    document.getElementById("markdown").innerHTML = allContent;
                     mermaid.init(undefined, document.getElementsByClassName("mermaid"))
 
                     const mk = document.getElementById("markdown");
@@ -54,6 +60,7 @@ function LoadPage(index) {
                 r.readAsText(blob);
 
             });
+    }
 }
 
 function createBoards(data) {
