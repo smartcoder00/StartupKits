@@ -64,6 +64,13 @@ div #markdown {width: 60%;}
 
 code {background-color: #f2f2f2;}
 
+code.code {
+    background-color: #f2f2f2;
+    display:block;
+    overflow:auto;
+    padding:.5rem .5rem;
+    text-align:left;
+}
 code.console {
     background-color:black;
     color:white;
@@ -91,7 +98,7 @@ img {
     border-radius:.125rem;
     height:auto;
     max-width:100%
-} 
+}
 
 table,th,td {
     border: 2px solid grey;
@@ -100,7 +107,103 @@ table,th,td {
     font-size:18px;
     line-height:25px;
     letter-spacing:1px;
-       
-} 
+
+}
 table.pinout {width:75%;}
 tr:nth-child(even){background-color: #f2f2f2}
+
+{
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.card-container {
+    display: flex;
+    padding: 3rem;
+}
+
+.card {
+    min-width: 300px;
+    border-radius: 16px;
+    background-color: #17141d;
+    box-shadow: -1rem 0 3rem #000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    transition: 0.2s;
+}
+
+.date {
+    color: #8a8a8a;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0 1rem;
+}
+
+.tags div {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border: 3px solid #28242f;
+    border-radius: 2rem;
+}
+
+.card .category-title {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card .article-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card .article-header {
+    margin-bottom: auto;
+}
+
+.card .author {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+}
+
+.author .info .caption {
+    color: #8a8a8a;
+}
+
+.card:not(:first-child) {
+    margin-left: -15%;
+}
+
+.card:hover {
+    transform: translateY(-1rem);
+    transform: scale(1.5);
+    z-index: 200;
+    padding-top: 5%;
+}
+.card:first-child:hover {
+    padding-left: 5%;
+}
+.card:last-child:hover {
+    padding-right: 5%;
+}
+
+.card:hover~.card{
+    transform: translateX(70%);
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
+    text-decoration: none;
+    color: black;
+}
